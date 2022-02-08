@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,10 +9,50 @@ namespace CursoDesignPatterns2
     {
         static void Main(string[] args)
         {
-            IDbConnection conexao = new ConnectionFactory().GetConnection();
+            #region Capitulo 1
+            //IDbConnection conexao = new ConnectionFactory().GetConnection();
 
-            IDbCommand comando = conexao.CreateCommand();
-            comando.CommandText = "select * from tabela";
+            //IDbCommand comando = conexao.CreateCommand();
+            //comando.CommandText = "select * from tabela"; 
+            #endregion
+
+            #region Capitulo 2
+            NotasMusicais notas = new NotasMusicais();
+
+            // Cria uma coleção de notas, gerando uma música
+            IList<INota> doReMiFa = new List<INota>() {
+            notas.Pega("Do"),
+            notas.Pega("Re"),
+            notas.Pega("Mi"),
+            notas.Pega("Fa"),
+            notas.Pega("Fa"),
+            notas.Pega("Fa"),
+
+            notas.Pega("Do"),
+            notas.Pega("Re"),
+            notas.Pega("Do"),
+            notas.Pega("Re"),
+            notas.Pega("Re"),
+            notas.Pega("Re"),
+
+            notas.Pega("Do"),
+            notas.Pega("Sol"),
+            notas.Pega("Fa"),
+            notas.Pega("Mi"),
+            notas.Pega("Mi"),
+            notas.Pega("Mi"),
+
+            notas.Pega("Do"),
+            notas.Pega("Re"),
+            notas.Pega("Mi"),
+            notas.Pega("Fa"),
+            notas.Pega("Fa"),
+            notas.Pega("Fa")
+            };
+
+            Piano piano = new Piano();
+            piano.Toca(doReMiFa); 
+            #endregion
         }
     }
 }
