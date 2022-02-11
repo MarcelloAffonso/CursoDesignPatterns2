@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq.Expressions;
 
 namespace CursoDesignPatterns2
 {
@@ -55,19 +56,50 @@ namespace CursoDesignPatterns2
             #endregion
 
             #region Capitulo 3
-            Historico historico = new Historico();
+            //Historico historico = new Historico();
 
-            Contrato contrato = new Contrato(DateTime.Now, "Marcello", TipoContrato.Novo);
-            historico.Adiciona(contrato.SalvaEstado());
+            //Contrato contrato = new Contrato(DateTime.Now, "Marcello", TipoContrato.Novo);
+            //historico.Adiciona(contrato.SalvaEstado());
 
-            contrato.Avanca();
-            historico.Adiciona(contrato.SalvaEstado());
+            //contrato.Avanca();
+            //historico.Adiciona(contrato.SalvaEstado());
 
-            contrato.Avanca();
-            historico.Adiciona(contrato.SalvaEstado());
+            //contrato.Avanca();
+            //historico.Adiciona(contrato.SalvaEstado());
 
-            Console.WriteLine(historico.Pega(2).Contrato.Tipo);
+            //Console.WriteLine(historico.Pega(2).Contrato.Tipo);
             #endregion
+
+            #region Capitulo 4
+
+            // 1+10=11
+            IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
+
+            // 20-10=10
+            IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
+
+            // Soma as duas expressões - 11+10= 21
+            IExpressao soma = new Soma(esquerda, direita);
+
+            IExpressao raiz = new RaizQuadrada(new Numero(9));
+
+            // Exibe o resultado
+            Console.WriteLine(soma.Avalia());
+
+            // Exibe o resultado
+            Console.WriteLine(raiz.Avalia());
+
+            // API do próprio C#
+            Expression somaExpression = Expression.Add(Expression.Constant(10), Expression.Constant(100));
+
+            // Gera a função matemática de 10 + 100
+            Func<int> funcao = Expression.Lambda<Func<int>>(somaExpression).Compile();
+
+            Console.WriteLine(funcao());
+
+            #endregion
+
+
         }
     }
 }
