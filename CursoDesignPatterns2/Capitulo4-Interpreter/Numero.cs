@@ -6,11 +6,11 @@ namespace CursoDesignPatterns2
 {
     public class Numero : IExpressao
     {
-        private int numero;
+        public int Valor { get; private set; }
 
         public Numero(int numero)
         {
-            this.numero = numero;
+            this.Valor = numero;
         }
 
         /// <summary>
@@ -18,7 +18,12 @@ namespace CursoDesignPatterns2
         /// </summary>
         public int Avalia()
         {
-            return this.numero;
+            return this.Valor;
+        }
+
+        public void Aceita(IVisitor impressora)
+        {
+            impressora.VisitaNumero(this);
         }
     }
 }

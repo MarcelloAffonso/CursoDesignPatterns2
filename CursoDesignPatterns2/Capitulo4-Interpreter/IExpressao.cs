@@ -10,5 +10,10 @@ namespace CursoDesignPatterns2
         /// Método responsável por avaliar/interpretar a expressão matemática
         /// </summary>
         int Avalia();
+
+        /// <summary>
+        /// Método responsável por aceitar uma impressora, que basicamente imprimirá a expressão. Recebe um IVisitor pq pode ser qualquer visitor
+        /// </summary>
+        void Aceita(IVisitor impressora);
     }
 }

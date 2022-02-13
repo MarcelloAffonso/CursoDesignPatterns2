@@ -98,6 +98,8 @@ namespace CursoDesignPatterns2
             Console.WriteLine(funcao());
 
             #endregion
+            ImpressoraPreFixoVisitor impressora = new ImpressoraPreFixoVisitor();
+            soma.Aceita(impressora);
 
 
         }

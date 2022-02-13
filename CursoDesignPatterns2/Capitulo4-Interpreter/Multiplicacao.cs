@@ -26,5 +26,10 @@ namespace CursoDesignPatterns2
         {
             return esquerda.Avalia() * direita.Avalia();
         }
+
+        public void Aceita(IVisitor impressora)
+        {
+
+        }
     }
 }

@@ -20,5 +20,10 @@ namespace CursoDesignPatterns2
         {
             return (int)Math.Sqrt(this.expressao.Avalia());
         }
+
+        public void Aceita(IVisitor impressora)
+        {
+
+        }
     }
 }

@@ -9,22 +9,27 @@ namespace CursoDesignPatterns2
         /// <summary>
         /// Expressão da esquerda
         /// </summary>
-        private IExpressao esquerda;
+        public IExpressao Esquerda { get; private set; }
 
         /// <summary>
         /// Expressão da direita
         /// </summary>
-        private IExpressao direita;
+        public IExpressao Direita { get; private set; }
 
         public Divisao(IExpressao esquerda, IExpressao direita)
         {
-            this.esquerda = esquerda;
-            this.direita = direita;
+            this.Esquerda = esquerda;
+            this.Direita = direita;
         }
 
         public int Avalia()
         {
-            return esquerda.Avalia() / direita.Avalia();
+            return Esquerda.Avalia() / Direita.Avalia();
+        }
+
+        public void Aceita(IVisitor impressora)
+        {
+
         }
     }
 }
