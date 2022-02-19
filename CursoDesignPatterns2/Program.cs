@@ -103,13 +103,26 @@ namespace CursoDesignPatterns2
             #endregion
 
             #region Capitulo 6
+            //IMensagem mensagem = new MensagemAdministrativa("Marcello");
+            //IEnviador enviador = new EnviaPorEmail();
 
-            IMensagem mensagem = new MensagemAdministrativa("Marcello");
-            IEnviador enviador = new EnviaPorEmail();
+            //mensagem.Enviador = enviador;
 
-            mensagem.Enviador = enviador;
+            //mensagem.Envia();
+            #endregion
 
-            mensagem.Envia();
+            #region Capitulo 7
+
+            FilaDeTrabalho fila = new FilaDeTrabalho();
+            Pedido pedido1 = new Pedido("Marcello", 100);
+            Pedido pedido2 = new Pedido("Mauricio", 200);
+
+            fila.Adiciona(new PagaPedido(pedido1));
+            fila.Adiciona(new PagaPedido(pedido2));
+
+            fila.Adiciona(new FinalizaPedido(pedido1));
+
+            fila.Processa();
 
             #endregion
 
