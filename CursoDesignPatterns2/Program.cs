@@ -112,18 +112,29 @@ namespace CursoDesignPatterns2
             #endregion
 
             #region Capitulo 7
+            //FilaDeTrabalho fila = new FilaDeTrabalho();
+            //Pedido pedido1 = new Pedido("Marcello", 100);
+            //Pedido pedido2 = new Pedido("Mauricio", 200);
 
-            FilaDeTrabalho fila = new FilaDeTrabalho();
-            Pedido pedido1 = new Pedido("Marcello", 100);
-            Pedido pedido2 = new Pedido("Mauricio", 200);
+            //fila.Adiciona(new PagaPedido(pedido1));
+            //fila.Adiciona(new PagaPedido(pedido2));
 
-            fila.Adiciona(new PagaPedido(pedido1));
-            fila.Adiciona(new PagaPedido(pedido2));
+            //fila.Adiciona(new FinalizaPedido(pedido1));
 
-            fila.Adiciona(new FinalizaPedido(pedido1));
+            //fila.Processa();
+            #endregion
 
-            fila.Processa();
+            #region Capitulo 8
+            Cliente cliente = new Cliente();
+            cliente.Nome = "Marcello";
+            cliente.Endereco = "Avenida Paulista";
+            cliente.DataDeNascimento = DateTime.Now;
 
+            // Obtém a string através do gerador de xml
+            string xml = new GeradorDeXml().GeraXml(cliente);
+
+            // Imprime na tela
+            Console.WriteLine(xml);
             #endregion
 
 
