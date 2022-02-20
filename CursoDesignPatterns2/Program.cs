@@ -125,19 +125,26 @@ namespace CursoDesignPatterns2
             #endregion
 
             #region Capitulo 8
-            Cliente cliente = new Cliente();
-            cliente.Nome = "Marcello";
-            cliente.Endereco = "Avenida Paulista";
-            cliente.DataDeNascimento = DateTime.Now;
+            //Cliente cliente = new Cliente();
+            //cliente.Nome = "Marcello";
+            //cliente.Endereco = "Avenida Paulista";
+            //cliente.DataDeNascimento = DateTime.Now;
 
-            // Obtém a string através do gerador de xml
-            string xml = new GeradorDeXml().GeraXml(cliente);
+            //// Obtém a string através do gerador de xml
+            //string xml = new GeradorDeXml().GeraXml(cliente);
 
-            // Imprime na tela
-            Console.WriteLine(xml);
+            //// Imprime na tela
+            //Console.WriteLine(xml);
             #endregion
 
+            #region Capitulo 9
+            string cpf = "1234";
 
+            EmpresaFacade facade = new EmpresaFacadeSingleton().Instancia;
+            Cliente cliente = facade.BuscaCliente(cpf);
+
+            var fatura = facade.CriaFatura(cliente, 5000);
+            #endregion
         }
     }
 }
